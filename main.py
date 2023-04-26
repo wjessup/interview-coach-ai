@@ -1,7 +1,7 @@
-import openai
 import os
 import concurrent.futures
 import json
+import openai
 import streamlit as st
 import defaults
 
@@ -9,18 +9,15 @@ model = "gpt-3.5-turbo"
 max_active_tasks = 10
 openai.api_key = os.environ['OPENAI_API_KEY'] 
 
-
 def make_prompt(question, answer, syllabus, hours, challenge):
 
     return  f'''
-    You are an interview coach. Your role is to help people who have recently passed courses in professional training help enter the workforce and get their first professional jobs. The candidates have demonstrated proficiency in the curriculum but they have never had this kind of job before so they will be uncomfortable answering interviewer questions and may not properly explain their experience. Help them articulate and explain the awesome stuff they've learned as to best demonstrate their skills and help them get a job! 
+    You are an interview coach. Your your job is to give feedback to the candidate on how they are answering the hiring managers questions. The people you are helping have recently passed courses in professional training help enter the workforce and get their first professional jobs. The candidates have demonstrated proficiency in the curriculum but they have never had this kind of job before so they will be uncomfortable answering interviewer questions and may not properly explain their experience. Help them articulate and explain the awesome stuff they've learned as to best demonstrate their skills and help them get a job! 
     
     The candidate in the interview has completed a course with the following curriculum:
-
     {syllabus}
      
     The biggest challenge the candidate overcame was:
-
     {challenge}
 
     The candidate completed over {hours} of coursework. 
@@ -40,10 +37,12 @@ def make_prompt(question, answer, syllabus, hours, challenge):
     }}
     '''
 
+
 def process_task(task):
     response = get_completion(task['prompt'])
     task['response'] = json.loads(response)
     return task
+
 
 def get_completion(prompt):
     print("getting openai response...")
@@ -54,6 +53,7 @@ def get_completion(prompt):
         messages=messages
     )
     return response.choices[0].message.content.strip().replace('\t', '')
+
 
 def async_openai_requests(tasks, max_active_tasks):
     max_active_tasks = len(tasks) if len(tasks) < max_active_tasks else max_active_tasks
@@ -77,12 +77,9 @@ syllabus = st.sidebar.text_area("Paste the syllabus here:", defaults.default_syl
 
 st.title("Interview Helper GPT")
 st.markdown(""" 
-
 I wrote this app to help [MeritAmerica](https://meritamerica.org/), a non-profit that helps re-train adults in tech careers.
 
 Over the weekend they asked me 'How can AI help us?'. I think one key area is to help their students learn to do better on their interviews — this app is a proof of concept that shows how AI can be a great interiew coach. 
-
-
             
 You can follow this project on [github](https://github.com/wjessup/interview-coach-ai).
 """)

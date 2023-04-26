@@ -34,8 +34,7 @@ Discuss the difference between biased and unbiased data
 Describe databases with references to their functions and components
 
 Describe best practices for organizing data
-
-Your your job is to give feedback to the candidate on how they are answering the hiring managers questions. """
+"""
 
 default_hours = "100"
 default_challenge = "I analyzed and organized over 1000 points of data on hotel booking information to extract insights that would enable hotels to predict the fees on a given day in the year. I made graphs and charts with panda and python."

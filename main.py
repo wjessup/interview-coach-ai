@@ -9,6 +9,7 @@ model = "gpt-3.5-turbo"
 max_active_tasks = 10
 openai.api_key = os.environ['OPENAI_API_KEY'] 
 
+
 def make_prompt(question, answer, syllabus, hours, challenge):
 
     return  f'''
@@ -75,7 +76,17 @@ challenge = st.sidebar.text_area("Explain in your own words what you've learned 
 syllabus = st.sidebar.text_area("Paste the syllabus here:", defaults.default_syllabus)
 
 st.title("Interview Helper GPT")
- 
+st.markdown(""" 
+
+I wrote this app to help [MeritAmerica](https://meritamerica.org/), a non-profit that helps re-train adults in tech careers.
+
+Over the weekend they asked me 'How can AI help us?'. I think one key area is to help their students learn to do better on their interviews — this app is a proof of concept that shows how AI can be a great interiew coach. 
+
+
+            
+You can follow this project on [github](https://github.com/wjessup/interview-coach-ai).
+""")
+
 
 if page_selection == "Single Q&A":
     st.write(f"### Interview Coaching — Single Q&A") 

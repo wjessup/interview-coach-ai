@@ -8,7 +8,6 @@ I created this app to demonstrate an concept of an interview helper chatbot that
 
 The next step would be to review actual interviews from the candidate (perhaps via brighthire api) and automatically review and create response suggestions.
 
-Help contribute to this app at [github](https://github.com/wjessup/)
 
 ## 💾 Installation
 
@@ -25,7 +24,7 @@ git clone https://github.com/wjessup/interview-coach-ai.git
 pip install -r requirements.txt
 ```
 
-3. Rename `.env.template` to `.env` and fill in your `OPENAI_API_KEY`. 
+3. Open `main.py` and set your API key here: `openai.api_key = yourapikey`
   - Obtain your OpenAI API key from: https://platform.openai.com/account/api-keys.
 
 ## 🔧 Usage

@@ -1,10 +1,14 @@
 # interview-coach-ai
 
-Over the weekend I met with [MeritAmerica](https://meritamerica.org/), a non-profit focused on helping retrain americans to get better careers. For example, they help people who are uber drivers become java engineers and the foundation covers the cost for training and only takes a fee after the candidate has been placed in a job. 
+This app shows how ChatGPT can be used to generate helpful feedback and coaching for people taking job interviews.
 
-I sat down with them to brainstorm how AI could help and came up with an idea of an interview coach. For people in this program they are transforming their lives. Often the first time they've ever used zoom is in the training, so it's not a surprise that most of the people who have passed coursework will be unconfident in their skills, nervous, and struggle to market their skills accordingly. 
-            
-I created this app to demonstrate an concept of an interview coach that would help folks learn to take better interviews. 
+This application will analyze a question asked by the hiring manager, the response given by the candidate, and information about what coursework and challenges the candidate has solved to provide feedback and a suggested response. 
+
+I wrote this app to help [MeritAmerica](https://meritamerica.org/), a non-profit that helps re-train adults in tech careers. I was told that often the first time the learners in MeritAmerica's program have ever used zoom is in the training. It's not a surprise then that people who have passed coursework will be unconfident in their skills, nervous, and struggle to market their skills accordingly in a job interview. 
+
+The default question and answer were provided to me by MeritAmerica as a typical example. The app does a pretty good job at recommending a better answer! 
+
+![screenshot of the application](screenshot.png)
 
 The next step would be to review actual interviews from the candidate and automatically review and create response suggestions.
 

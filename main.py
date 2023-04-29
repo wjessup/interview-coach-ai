@@ -66,21 +66,22 @@ def async_openai_requests(tasks, max_active_tasks):
 st.set_page_config(layout="wide")
 
 page_options = ["Single Q&A", "Interview Transcript"]
-page_selection = st.sidebar.selectbox("Go to", page_options)
+page_selection = st.sidebar.selectbox("Select Mode:", page_options)
 
 st.sidebar.write(f"## Setup") 
 st.sidebar.write("fill out information in the sidebar to enable the interview guidance bot to better customize answers.") 
 st.sidebar.write("The deafult information is for someome who has passed coursework in [data analytics](https://grow.google/certificates/data-analytics/#?modal_active=none)")
+syllabus = st.sidebar.text_area("Paste the syllabus here:", defaults.default_syllabus)
 hours = st.sidebar.text_input("How many hours of coursework did you complete?", defaults.default_hours)
 challenge = st.sidebar.text_area("Explain in your own words what you've learned or built in your coursework so that challenged you the most?", defaults.default_challenge)
-syllabus = st.sidebar.text_area("Paste the syllabus here:", defaults.default_syllabus)
+
 
 st.title("Interview Helper GPT")
 st.markdown(""" 
-I wrote this app to help [MeritAmerica](https://meritamerica.org/), a non-profit that helps re-train adults in tech careers.
+This app shows how ChatGPT can be used to generate helpful feedback and coaching for people taking job interviews. This application will analyze a question asked by the hiring manager, the response given by the candidate and also use information about what coursework and challenges the candidate has solved to provide feedback and a suggested response. 
 
-Over the weekend they asked me 'How can AI help us?'. I think one key area is to help their students learn to do better on their interviews — this app is a proof of concept that shows how AI can be a great interiew coach. 
-            
+Give it a try!
+
 You can follow this project on [github](https://github.com/wjessup/interview-coach-ai).
 """)
 
@@ -90,14 +91,14 @@ if page_selection == "Single Q&A":
     question = st.text_area("Enter the question you were asked by the interviewer:", defaults.default_question)
     answer = st.text_area("Enter your answer:", defaults.default_answer)
 
-    if st.button("Go"):
+    if st.button("Generate Feedback"):
         prompt = make_prompt(question, answer, syllabus, hours, challenge)
 
         with st.spinner("Thinking..."):
             response = get_completion(prompt).replace('\t', '')
 
-        print(response)
-        response_json = json.loads(response)
+            print(response)
+            response_json = json.loads(response)
 
         st.write("---")
         st.write(f"##### Score")
@@ -122,7 +123,7 @@ if page_selection == "Interview Transcript":
     
     questions = [{'question': data_pairs[i], 'answer': data_pairs[i+1], 'prompt': make_prompt(data_pairs[i], data_pairs[i+1], syllabus, hours, challenge)} for i in range(0, len(data_pairs), 2)]
     
-    if st.button("Go"):
+    if st.button("Generate Feedback"):
 
         with st.spinner(f"Processing {len(questions)} questions..."):
             tasks = async_openai_requests(questions, max_active_tasks)

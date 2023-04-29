@@ -1,43 +1,45 @@
+default_hours = "100"
+
 default_question = "tell me about the google career cert in data analytics. I see you don't have a college degree, how do I know you have the skills to be a data analyst?"
+
 default_answer = "yea I don't have a degree but I worked really hard to get my cert. um. I think I can do the job. I hope you give me a chance."
 
-default_syllabus = """Foundations: Data, Data, Everywhere
-22 hours
-What you'll learn
-Define and explain key concepts involved in data analytics including data, data analysis, and data ecosystem
-
-Conduct an analytical thinking self assessment giving specific examples of the application of analytical thinking
-
-Discuss the role of spreadsheets, query languages, and data visualization tools in data analytics
-
-Describe the role of a data analyst with specific reference to jobs/positions
-
-Ask Questions to Make Data-Driven Decisions
-21 hours
-What you'll learn
-Explain how each step of the problem-solving road map contributes to common analysis scenarios.
-
-Discuss the use of data in the decision-making process.
-
-Demonstrate the use of spreadsheets to complete basic tasks of the data analyst including entering and organizing data.
-
-
-Describe the key ideas associated with structured thinking.
-
-Prepare Data for Exploration
-25 hours
-What you'll learn
-Explain factors to consider when making decisions about data collection
-
-Discuss the difference between biased and unbiased data
-
-Describe databases with references to their functions and components
-
-Describe best practices for organizing data
-"""
-
-default_hours = "100"
 default_challenge = "I analyzed and organized over 1000 points of data on hotel booking information to extract insights that would enable hotels to predict the fees on a given day in the year. I made graphs and charts with panda and python."
+
+default_syllabus = """I. Introduction to Data Analytics
+
+Overview of data analytics and its applications
+Key concepts in data analytics
+Introduction to Google tools and technologies for data analytics
+
+II. Data Collection and Preparation
+
+Data collection methods and best practices
+Data cleaning, transformation, and normalization techniques
+Overview of Google Analytics for web analytics
+
+III. Data Visualization
+
+Principles of data visualization
+Types of charts and graphs
+Introduction to Google Data Studio for creating interactive dashboards
+
+IV. Data Modeling
+
+Overview of data modeling and its importance in data analytics
+Introduction to machine learning algorithms
+Overview of Google's Machine Learning Platform
+
+V. Data Analysis
+
+Exploratory data analysis techniques
+Hypothesis testing and statistical analysis
+Advanced data analysis techniques using Google BigQuery
+
+VI. Capstone Project
+
+A project to apply the concepts learned in the course using real-world data and Google tools.
+"""
 
 default_transcript = """Interviewer: Hi there, thank you for coming in today. Can you tell me a little bit about your background and experience in data analytics?
 

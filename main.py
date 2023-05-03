@@ -70,7 +70,7 @@ page_selection = st.sidebar.selectbox("Select Mode:", page_options)
 
 st.sidebar.write(f"## Setup") 
 st.sidebar.write("fill out information in the sidebar to enable the interview guidance bot to better customize answers.") 
-st.sidebar.write("The deafult information is for someome who has passed coursework in [data analytics](https://grow.google/certificates/data-analytics/#?modal_active=none)")
+st.sidebar.write("The default information is for someome who has passed coursework in [data analytics](https://grow.google/certificates/data-analytics/#?modal_active=none)")
 syllabus = st.sidebar.text_area("Paste the syllabus here:", defaults.default_syllabus)
 hours = st.sidebar.text_input("How many hours of coursework did you complete?", defaults.default_hours)
 challenge = st.sidebar.text_area("Explain in your own words what you've learned or built in your coursework so that challenged you the most?", defaults.default_challenge)
